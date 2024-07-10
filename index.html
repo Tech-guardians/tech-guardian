@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="Picsart_24-06-30_13-29-05-637-removebg-preview-removebg-preview.png" type="image/icon type">
+    <title>Tech-guardian</title>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-..."
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    body {
+        background-image: url(pexels-pixabay-268533\ \(1\).jpg);
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.3rem 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 100;
+    }
+    .header::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .1);
+        backdrop-filter: blur(50px);
+        z-index: -5;
+    }
+    .header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);     
+        transition: .5s;    
+    }
+    .header:hover::after {
+        left: 100%;
+    }
+    .logo {
+        font-size: 2rem;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .navbar a {
+        font-size: 1.15em;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 2.5rem;
+    }
+    #check {
+        display: none;
+    }
+    .icons {
+        position: absolute;
+        font-size: 2.8rem;
+        right: 5%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+    }
+    @media (max-width: 992px) {
+        .header {
+            padding: 1.3rem 5%;
+        }
+        section {
+         padding: 1em 3em;
+          }
+       .column {
+         flex: 0 0 33.33%;
+         max-width: 33.33%;
+       }
+}
+
+    @media (max-width: 768px) {
+        .icons {
+            display: inline-flex;
+        }
+        #check:checked~.icons #menu-icon {
+            display: none;  
+        }
+        .icons #close-icon {
+            display: none;
+        }
+        #check:checked~.icons #close-icon {
+            display: block;  
+        }
+        .navbar {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: rgba(0, 0, 0, .1);
+            backdrop-filter: blur(50px);
+            box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+            overflow: hidden;
+            transition: .3s ease;
+        }
+        #check:checked~.navbar {
+            height: 17.7rem;
+        } 
+        .navbar a {
+            display: block;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            transform: translateY(-50px);
+            transition: .3s ease;
+        }
+        #check:checked~.navbar a {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: calc(.15s * var(--i));
+        }
+
+        #services {
+         padding: 0 2em;
+        }
+        .column {
+        flex: 0 50%;
+        max-width: 50%;
+         }
+}
+
+    
+.outer-headings {
+    height: 100vh;
+    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  flex-direction: column;
+}
+
+h1 {
+  color: #00ccff;
+  font-size: px;
+  text-align: center;
+}
+
+.inner-headings {
+  border: 0px solid #ddd;
+  height: 50px;
+  line-height: 50px;
+  font-size: 35px;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-align: center;
+}
+
+.inner-headings span {
+  font-size: 25px;
+  position: relative;
+  color: rgb(255, 255, 255);
+  animation: animation 20s ease infinite;
+}
+#services {
+  background-image: url(pexels-veeterzy-303383.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column {
+  width: 100%;
+  padding: 0 1em 1em 1em;
+  text-align: center;
+}
+.card {
+  width: 100%;
+  height: 100%;
+  padding: 2em 1.5em;
+  background: linear-gradient(#ffffff 50%, #2c7bfe 50%);
+  background-size: 100% 200%;
+  background-position: 0 2.5%;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.185);
+  cursor: pointer;
+  transition: 0.5s;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin: 1em 0;
+}
+p {
+  color: #575a7b;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+.icon-wrapper {
+  background-color: #2c7bfe;
+  position: relative;
+  margin: auto;
+  font-size: 30px;
+  height: 2.5em;
+  width: 2.5em;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+.card:hover {
+  background-position: 0 100%;
+}
+.card:hover .icon-wrapper {
+  background-color: #ffffff;
+  color: #2c7bfe;
+}
+.card:hover h3 {
+  color: #ffffff;
+}
+.card:hover p {
+  color: #f0f0f0;
+}
+@media screen and (min-width: 768px) {
+  section {
+    padding: 0 2em;
+  }
+  .column {
+    flex: 0 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 992px) {
+  section {
+    padding: 1em 3em;
+  }
+  .column {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+@keyframes animation {
+  0%, 100% {
+    top: 0;
+  }
+  20% {
+    top: 0;
+  }
+  25% {
+    top: -50px;
+  }
+  45% {
+    top: -50px;
+  }
+  50% {
+    top: -100px;
+  }
+  70% {
+    top: -100px;
+  }
+  75% {
+    top: -150px;
+  }
+  95% {
+    top: -150px;
+  }
+}
+#team {
+  height: 100%;
+  width: 100%;
+  background-color: #0000008c;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-member {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.733);
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.team-member h3 {
+  font-weight: 700;
+  margin: 0;
+}
+
+.team-member .role {
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.fa {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #000;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.team-member:hover .fa {
+  transform: scale(1.2);
+  color: #007AFF;
+}
+
+h2{
+  height: 100%;
+  width: 100%;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+}
+
+.footer-left h3, .footer-center h4 {
+    margin-bottom: 10px;
+}
+
+.footer-left p, .footer-right p {
+    margin: 5px 0;
+}
+
+.footer-center .social-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-center .social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer-center .social-links li a {
+    color: #0c0909;
+    text-decoration: none;
+}
+
+.footer-center .social-links li a:hover {
+    text-decoration: underline;
+}
+  
+.mybox1 { 
+    display: none; 
+} 
+  
+.mybox2 { 
+    display: none; 
+} 
+  
+.mybox3 { 
+    display: none; 
+} 
+
+.mybox4 { 
+    display: none; 
+} 
+.mybox5 { 
+    display: none; 
+} 
+.mybox6 { 
+    display: none; 
+} 
+  
+button { 
+  width: 100%;
+    padding: 10px; 
+    font-size: 20px; 
+    font-weight: 700; 
+    color: rgb(5, 14, 5); 
+    border: none; 
+    border-radius: 30px; 
+    background-color: rgb(182, 215, 182); 
+    margin-top: 20px; 
+} 
+  
+div, 
+span { 
+    font-size: 20px; 
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.column {
+  flex: 0 0 30%;
+  max-width: 30%;
+  padding: 1em;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .column {
+    flex: 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .column {
+    flex: 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+</style>
+<body>
+    <header class="header">
+        <img src="Picsart_24-06-30_13-29-05-637-removebg-preview-removebg-preview.png" alt="none" width="120px">
+
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class='bx bx-menu-alt-right' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+        <nav class="navbar">
+            <a href="#" style="--i:0">Home</a>
+            <a href="#about" style="--i:1">About</a>
+            <a href="#services" style="--i:2">Services</a>
+            <a href="#team" style="--i:3">Team</a>
+            <a href="#contact" style="--i:4">Contact</a>
+        </nav>
+    </header>
+      <div class="outer-headings" data-aos="fade-up" data-aos-duration="2000">
+        <h1>
+            Do you need any help with
+            <div class="inner-headings" data-aos="fade-up" data-aos-duration="2000">
+                <span>
+                    Website development<br/>
+                    Google rating<br/>
+                    Content Creation<br/>
+                    Video & Photo Editing.<br/>
+                  </span>
+            </div>
+        </h1>
+       </div>
+    
+    <section id="about" data-aos="fade-right" data-aos-duration="2000" style="padding: 4rem 0; color: #ffffff; text-align: center; background-color: #64707c98;">
+        <div style="max-width: 1800px; margin: auto; padding: 0 2rem;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #ddd;" >About</h2> <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #ddd;">Tech-Guardian</h2>
+            <p data-aos="fade-up" data-aos-duration="2000" style="font-size: 1.2rem; line-height: 1.6; color: rgb(255, 255, 255);">
+                Welcome to Tech-guardians! We are a dedicated team of professionals committed to providing top-notch digital solutions. 
+                Our expertise spans across website development, enhancing Google ratings, content creation, and video & photo editing.
+                We understand the importance of a strong online presence in today’s digital world, and we are here to help you achieve that.
+            </p>
+            <p data-aos="fade-up" data-aos-duration="2000" style="font-size: 1.2rem; line-height: 1.6; margin-top: 1rem; color: white;">
+                With a passion for technology and creativity, we aim to deliver high-quality services that meet your unique needs.
+                Whether you're a small business looking to establish your online presence or an established company aiming to enhance your digital strategy, Tech-guardians is your go-to partner.
+            </p>
+            <p data-aos="fade-up" data-aos-duration="2000" style="font-size: 1.2rem; line-height: 1.6; margin-top: 1rem; color: white;">
+                Our mission is to empower our clients with the tools and knowledge necessary to thrive in the digital landscape. 
+                We believe in building long-lasting relationships based on trust and mutual growth. Let us be your guardians in the tech world, guiding you towards success.
+            </p>
+        </div>
+    </section>
+    <section id="services" style="padding: 4rem 0; background-color: rgba(0, 0, 0, 0.8); color: #fff; text-align: center;">
+      <div style="max-width: 1200px; margin: auto; padding: 0 2rem;">
+        <div class="row" data-aos="fade-right" data-aos-duration="2000" >
+          <h1 class="section-heading">Our Services</h1>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div class="card" data-aos="fade-left" data-aos-duration="2000" >
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <h3>Web development</h3>
+              <p> 
+                <span class="mybox1" id="mybox1id">
+                Creating and customizing websites according to specific requirements.
+                Ensuring responsive design, user-friendly navigation, and efficient performance.
+                Integrating features like e-commerce, blogs, contact forms, etc.</span>
+              </p>
+               <button class="read-more-button" onclick="toggleReadMore('mybox1id', 'button1')">Read More</button>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card" data-aos="fade-right" data-aos-duration="2000" >
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <h3>Data Entry</h3>
+              <p>
+                <span class="mybox2" id="mybox2id">
+                Inputting and updating data accurately into databases or systems.
+                Responding to customer comments and feedback on Google My Business.
+                Developing strategies to enhance online reputation.
+              </span></p>
+               <button class="read-more-button" onclick="toggleReadMore('mybox2id', 'button2')">Read More</button>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card" data-aos="fade-left" data-aos-duration="2000" >
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-face-smile"></i>
+              </div>
+              <h3>Google rating & comments</h3>
+              <p>
+                <span class="mybox3" id="mybox3id">
+                Managing and improving Google ratings and reviews for businesses.
+                Responding to customer comments and feedback on Google My Business.
+                Developing strategies to enhance online reputation.
+                </span>
+              </p>
+               <button class="read-more-button" onclick="toggleReadMore('mybox3id', 'button3')">Read More</button>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card" data-aos="fade-right" data-aos-duration="2000" >
+              <div class="icon-wrapper">
+                <i class="fas fa-truck-pickup"></i>
+              </div>
+              <h3>Dropshiping consultants </h3>
+              <p>
+                <span class="mybox4" id="mybox4id">
+                Assisting in selecting a niche and target market.
+                Setting up an online store on platforms like Shopify, WooCommerce, etc.
+                Integrating necessary tools and apps for dropshipping.
+             </span> 
+            </p>
+               <button class="read-more-button" onclick="toggleReadMore('mybox4id', 'button4')">Read More</button>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card" data-aos="fade-left" data-aos-duration="2000" >
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <h3>Virtual Assistant (Calling & Dealing with Clients)</h3>
+              <p>
+                <span class="mybox5" id="mybox5id">
+                Handling phone calls and emails from clients.
+                Scheduling appointments, managing calendars, and organizing meetings.
+                Providing administrative support and customer service
+               </span>
+              </p>
+              <button class="read-more-button" onclick="toggleReadMore('mybox5id', 'button5')">Read More</button>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card" data-aos="fade-right" data-aos-duration="2000" >
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-camera-retro"></i>
+              </div>
+              <h3>Video & Photo Editing</h3>
+              <p>
+                <span class="mybox6" id="mybox6id">
+                Editing videos and photos to meet specific requirements.
+                Enhancing visual content for marketing, social media, and other purposes.
+                Using software like Adobe Premiere, Final Cut Pro, Photoshop, etc.
+             </span>
+             </p>
+               <button class="read-more-button" onclick="toggleReadMore('mybox6id', 'button6')">Read More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+       <h2 class="tom">our Team</h2>
+      <div id="team">
+        <div class="team-member" data-aos="fade-left" data-aos-duration="2000">
+          <img src="me.jpg" alt="Team Member 2">
+          <h3>Clement James Butterfield</h3>
+          <p class="role">CEO & Founder</p>
+          <a href="https://www.instagram.com/c.j.butterfield/" class="fa fa-instagram"></a>
+        </div>
+        <div class="team-member" data-aos="fade-up" data-aos-duration="2000">
+          <img src="img67 (2).webp" alt="Team Member 1">
+          <h3>Arpit kumar</h3>
+          <p class="role">Head of Web development Team</p>
+          <a href="https://www.instagram.com/_.arsh._.k?igsh=MWc1c2JwNXZrNjBieQ==" class="fa fa-instagram"></a>
+        </div>
+        
+        <div class="team-member" data-aos="fade-right" data-aos-duration="2000">
+          <img src="Picsart_24-07-09_00-45-58-671.jpg" alt="Team Member 3">
+          <h3>Harsh</h3>
+          <p class="role">Head of management Team</p>
+          <a href="https://www.instagram.com/harsh._.010714/" class="fa fa-instagram"></a>
+        </div>
+      </div>
+       
+       <section id="contact">
+        <script src="https://sheetdb.io/s/f/tc77gx3dqvmwm.js"></script>
+       </section>
+       
+       <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Tech-guardians</h3>
+                <p>India</p>
+                <p>techguardians049@gmail.com</p>
+                <p>Phone: (+91) 9773862484, 8266859015</p>
+            </div>
+            <div class="footer-center">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/profile.php?id=61561996970515&mibextid=ZbWKwL" class="fa fa-facebook"></a></li>
+                    <li><a href="https://www.instagram.com/techguardian916/" class="fa fa-instagram"></a><li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <p>&copy; 2024 Tech-guardians. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+  <script>
+     function toggleReadMore(boxId, buttonId) {
+    var box = document.getElementById(boxId);
+    var button = document.getElementById(buttonId);
+
+    if (box.style.display === 'none' || box.style.display === '') {
+      box.style.display = 'inline';
+      button.textContent = 'Read Less';
+    } else {
+      box.style.display = 'none';
+      button.textContent = 'Read More';
+    }
+  }
+  </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+      AOS.init();
+   </script>
+
+</body>
+</html>
