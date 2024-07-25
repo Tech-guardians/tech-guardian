@@ -428,6 +428,9 @@ h2{
 .mybox6 { 
     display: none; 
 } 
+.mybox7 { 
+    display: none; 
+} 
   
 button { 
   width: 100%;
@@ -438,7 +441,8 @@ button {
     border: none; 
     border-radius: 30px; 
     background-color: rgb(182, 215, 182); 
-    margin-top: 20px; 
+    margin-top: 20px;
+
 } 
   
 div, 
@@ -624,6 +628,20 @@ span {
                <button class="read-more-button" onclick="toggleReadMore('mybox6id', 'button6')">Read More</button>
             </div>
           </div>
+          <div class="column">
+            <div class="card" data-aos="fade-right" data-aos-duration="2000" >
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-plane"></i>
+              </div>
+              <h3>Visitors International Stay Admission(VISA)</h3>
+              <p>
+                <span class="mybox7" id="mybox7id">
+                  At our agency, we streamline the process of applying for VISA forms for our clients, ensuring a hassle-free experience. Our dedicated team of experts meticulously handles each application, verifying all necessary documentation and providing comprehensive guidance throughout the process.
+             </span>
+             </p>
+               <button class="read-more-button" onclick="toggleReadMore('mybox7id', 'button7')">Read More</button>
+            </div>
+          </div>
         </div>
       </section>
        <h2 class="tom">our Team</h2>
@@ -686,7 +704,8 @@ span {
       box.style.display = 'none';
       button.textContent = 'Read More';
     }
-  }
+    }
+  
   </script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
